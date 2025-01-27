@@ -160,15 +160,6 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.add_chart),
-              title: Text('Bullish and Bearish'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return LiquidationsTable();
-                }));
-              },
-            ),
-            ListTile(
               leading: Icon(Icons.logout),
               title: Text('Logout'),
               onTap: () {
@@ -324,7 +315,6 @@ class _HomeBodyState extends State<HomeBody> {
                         SizedBox(
                           width: 40,
                         ),
-                        SentimentToggleButtons(onSentimentChanged: (a) {}),
                       ],
                     ),
                     const Divider(),
@@ -583,6 +573,7 @@ class MarketAnalysisPost extends StatelessWidget {
                           const SizedBox(width: 4),
                           const Icon(Icons.public,
                               size: 16, color: Colors.grey),
+                          Container()
                         ],
                       ),
                     ],
