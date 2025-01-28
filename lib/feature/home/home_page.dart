@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   static const List<Widget> _pages = <Widget>[
     HomeBody(),
     EducationPage(),
-    PodcastPage(),
+    NewsPage(),
     PremiumPage(),
     ProfilePage()
   ];
@@ -119,15 +119,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.newspaper),
-              title: Text('News'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return NewsPage();
-                }));
-              },
-            ),
-            ListTile(
               leading: Icon(Icons.calendar_view_week_rounded),
               title: Text('Economic Calender'),
               onTap: () {
@@ -146,15 +137,8 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.support),
-              title: Text('Supports and Resistance'),
-              onTap: () {
-                Navigator.pop(context); // Drawer'ı kapatır
-              },
-            ),
-            ListTile(
               leading: Icon(Icons.analytics),
-              title: Text('AI Signals'),
+              title: Text('AI Tools cooming soon'),
               onTap: () {
                 Navigator.pop(context); // Drawer'ı kapatır
               },
@@ -188,8 +172,8 @@ class _HomePageState extends State<HomePage> {
             label: 'Education',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.podcasts),
-            label: 'Podcast',
+            icon: Icon(Icons.newspaper),
+            label: 'News',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.workspace_premium),

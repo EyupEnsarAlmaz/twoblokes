@@ -75,30 +75,33 @@ class EarningsCalendar extends StatelessWidget {
                   symbol: 'NFLX',
                   name: 'Netflix, Inc.',
                   marketCap: '\$360,077,891,490',
-                  eps: '\$4.19',
-                  estimates: '11',
-                  lastDate: '1/23/2024',
-                  lastEps: '\$2.11',
+                  epsEstimate: '\$4.19',
+                  reportedestimates: '11',
+                  suprise: '-2%',
+                  revenueforcast: '\$2.11',
+                  revenueActual: "2.12",
                 ),
                 _buildEarningsRow(
                   icon: '⚪',
                   symbol: 'HDB',
                   name: 'HDFC Bank Limited',
                   marketCap: '\$148,494,280,406',
-                  eps: '\$0.74',
-                  estimates: '1',
-                  lastDate: '1/16/2024',
-                  lastEps: '\$0.82',
+                  epsEstimate: '\$0.74',
+                  reportedestimates: '1',
+                  suprise: '3%',
+                  revenueforcast: '\$0.82',
+                  revenueActual: "2.12",
                 ),
                 _buildEarningsRow(
                   icon: '☀️',
                   symbol: 'SCHW',
                   name: 'The Charles Schwab Corporation',
                   marketCap: '\$138,225,267,174',
-                  eps: '\$0.90',
-                  estimates: '10',
-                  lastDate: '1/17/2024',
-                  lastEps: '\$0.68',
+                  epsEstimate: '\$0.90',
+                  reportedestimates: '10',
+                  suprise: '-2%',
+                  revenueforcast: '\$0.68',
+                  revenueActual: "2.12",
                 ),
                 // Add more rows as needed
               ],
@@ -157,10 +160,11 @@ class EarningsCalendar extends StatelessWidget {
     required String symbol,
     required String name,
     required String marketCap,
-    required String eps,
-    required String estimates,
-    required String lastDate,
-    required String lastEps,
+    required String epsEstimate,
+    required String reportedestimates,
+    required String suprise,
+    required String revenueforcast,
+    required String revenueActual,
   }) {
     return ExpansionTile(
       leading: Text(icon, style: const TextStyle(fontSize: 20)),
@@ -187,23 +191,29 @@ class EarningsCalendar extends StatelessWidget {
         'Market Cap: $marketCap',
         style: const TextStyle(fontSize: 12),
       ),
-      children: [
+      children: [ 
         Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              _buildDetailRow('Consensus EPS', eps),
-              _buildDetailRow('# of Estimates', estimates),
-              _buildDetailRow('Last Year\'s Report', lastDate),
-              _buildDetailRow('Last Year\'s EPS', lastEps),
+              _buildDetailRow('EPS Estimate', epsEstimate, Colors.black),
+              _buildDetailRow(
+                  'Reported Estimates', reportedestimates, Colors.black),
+              _buildDetailRow('Suprise', suprise, Colors.red),
+              _buildDetailRow('Revenue Forcast', revenueforcast, Colors.black),
+              _buildDetailRow('Revenue Actual', revenueActual, Colors.green),
             ],
-          ),
+          ),   
         ),
       ],
     );
   }
 
-  Widget _buildDetailRow(String label, String value) {
+  Widget _buildDetailRow(
+    String label,
+    String value,
+    Color? color,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
@@ -218,7 +228,8 @@ class EarningsCalendar extends StatelessWidget {
           ),
           Text(
             value,
-            style: const TextStyle(
+            style: TextStyle(
+              color: color,
               fontWeight: FontWeight.w500,
               fontSize: 14,
             ),

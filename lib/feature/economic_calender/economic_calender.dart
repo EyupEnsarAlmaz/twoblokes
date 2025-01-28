@@ -181,12 +181,11 @@ class MobileEconomicCalendar extends StatelessWidget {
             // Data grid
             Row(
               children: [
-                _buildDataColumn('Actual', actual, isBold: true),
                 _buildDataColumn('Previous', previous,
                     textColor:
                         previous.startsWith('-') ? Colors.red : Colors.green),
-                _buildDataColumn('Consensus', consensus),
                 _buildDataColumn('Forecast', forecast),
+                _buildDataColumn('Actual', actual, isBold: true),
               ],
             ),
           ],
